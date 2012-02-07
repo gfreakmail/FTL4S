@@ -23,8 +23,12 @@ int main(void){
   catch (const char *e){
       cout << e << endl;
   }*/
+  char *vars[]={"x","y"};
+  double values[]={0.65,0.25};
+  
 
-  EvalAux eval(string("3*x"));
+  EvalAux eval(string("3*x+y"));
   cout.precision(20);
-  eval.Call(miafuncio,0,.001,10);
+ // eval.Call(miafuncio,0,.001,10);
+  cout << eval.Eval(vars, values);
 }

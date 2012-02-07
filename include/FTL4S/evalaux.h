@@ -10,19 +10,17 @@ namespace FTL4S{
       void SetExpr(string p);
       double Eval(char **, double*);
       double Evalx(double); 
-      void Callback( void(*)(double),double,double,double);  
+      void Call( void(*)(double),double,double,double);  
       EvalAux(char *);
       EvalAux(string);
       EvalAux(const char*);
       
     private:
-
+      void GetVars(void);
       void *pEvaluator;     
       char *cExpr;
-      char **cNames;
-      int  iNamesCount;
-       
-
+      int  iVarNumb; 
+      char **pVarNames;  
  };
 
 }
