@@ -6,7 +6,7 @@ EvalAux::EvalAux(char *b){
  
   pEvaluator=evaluator_create(b);
   cExpr=b;
-
+  GetVars();
 }
 
 EvalAux::EvalAux(const char *b){
@@ -34,7 +34,7 @@ double EvalAux::Eval(char **n, double *v){
 
 double EvalAux::Evalx(double v){
 
-   return evaluator_evaluate_x(pEvaluator,v);
+  return evaluator_evaluate_x(pEvaluator,v);
 
 }
 
@@ -46,7 +46,28 @@ void EvalAux::Call(void (func)(double v), double st, double intv, double end){
 }
 
 void EvalAux::GetVars(void){
-    evaluator_get_variables(pEvaluator,&pVarNames,&iVarNumb);  
+   evaluator_get_variables(pEvaluator,&pVarNames,&iVarNumb);  
 }
- 
+
+void EvalAux::SetExpr(char *e){
+  evaluator_destroy(pEvaluator);
+  pEvaluator=evaluator_create(e);
+  cExpr=e;
+  GetVars();
+}
+
+void EvalAux::SetExpr(const char *e){
+  evaluator_destroy(pEvaluator);
+  pEvaluator=evaluator_create(const_cast<char *>(e));
+  cExpr=const_cast<char*>(e);
+  GetVars();
+}
+
+void EvalAux::SetExpr(string e){
+  evaluator_destroy(pEvaluator);
+  pEvaluator=evaluator_create(const_cast<char*>(e.c_str()));
+  cExpr=const_cast<char *>(e.c_str());
+  GetVars();
+}
+
 }//close FTL4S namespace

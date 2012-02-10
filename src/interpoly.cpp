@@ -18,14 +18,14 @@ namespace FTL4S{
       if (vRange.size() < 2 )
          throw "Are you kidding me? do you wanna interpolate just less than 2 values?";
 
-       sInterPoly="";
-      
-       for (int j=0; j < vRange.size(); j++){
-          str<< vRange[j];
-          str<< "*";
+      for (int j=0; j != vRange.size(); j++){
+          str << vRange[j] << "*"; 
           for (int i=0; i < vRange.size(); i++){
               if ( j!=i ){
-                  str<< "(x-" << vDomain[i] << ")/"<< "("<< vDomain[j] << "-" << vDomain[i]<<")"; 
+                  str << "(x" << (vDomain[i] < 0 ? "+" : "-");
+                  str << (vDomain[i] < 0 ? -vDomain[i] : vDomain[i]) << ")/"<< "("<< vDomain[j];
+                  str <<  (vDomain[i] < 0 ? "+" : "-") ;
+                  str <<  (vDomain[i] < 0 ? -vDomain[i] : vDomain[i]) <<")"; 
                   if ( (i+1) < vRange.size()) 
                     str<<"*";
               }
@@ -34,16 +34,14 @@ namespace FTL4S{
         }
         str << "1";
         sInterPoly = str.str();
-        //oEval.SetExpr(sInterPoly);
-
- 
+        mAux = new EvalAux(str.str());
   }
 
   string InterPoly::getInterPolyStr(void){
       return sInterPoly;
   }
 
-  FTL4S_BASETYPE InterPoly::eval(FTL4S_BASETYPE v){
- 
+  FTL4S_BASETYPE InterPoly::Eval(FTL4S_BASETYPE v){
+      return mAux->Evalx(v); 
   }
 }

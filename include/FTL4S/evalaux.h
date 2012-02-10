@@ -1,3 +1,5 @@
+#ifndef _FTL4S_EVALAUX
+#define _FTL4S_EVALAUX 
 
 namespace FTL4S{
 
@@ -6,8 +8,9 @@ namespace FTL4S{
     
     public:
 
-      void SetExpr(char *);    
-      void SetExpr(string p);
+      void SetExpr(char *);
+      void SetExpr(const char*);    
+      void SetExpr(string);
       double Eval(char **, double*);
       double Evalx(double); 
       void Call( void(*)(double),double,double,double);  
@@ -24,3 +27,4 @@ namespace FTL4S{
  };
 
 }
+#endif
