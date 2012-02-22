@@ -8,10 +8,11 @@ namespace FTL4S{
     public:
       Bezier(Vector&, Vector&);
       Bezier(Vector&, Vector&, Vector&);  
-    
+      Eval(FTL4S_BASETYPE);
+      static const EvalAux _Bezier(int);    
 
       private:
-        EvalAux  *BT;
+        EvalAux  *func; //evaluators 
            
    };
 

@@ -15,6 +15,12 @@ namespace FTL4S{
         n--;
     }
     return ret;
-  } 
+  }
+
+  //n!/(r!(n-r))! 
+ /* FTL4S_BASETYPE Utils::Comb(FTL4S_BASETYPE n, FTL4S_BASETYPE k){   
+     return Fact(n)/(Fact(k)*Fact(n-k));
+  }
+ */
 
 }

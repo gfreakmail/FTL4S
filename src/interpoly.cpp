@@ -32,7 +32,7 @@ namespace FTL4S{
           }
           if ((j+1) < vRange.size() ) str << "+";
         }
-        str << "1";
+        str << "1"; 
         sInterPoly = str.str();
         mAux = new EvalAux(str.str());
   }
