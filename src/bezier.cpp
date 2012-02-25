@@ -21,14 +21,13 @@ EvalAux Bezier::_Bezier(Vector& v) const{
   std::stringstream str;
   int n=v.size();
   for (int i=0; i < n; i++){
-     str << Utils::Comb(n,i);
+     str << Utils::Comb(n-1,i);
      str << "*x^(" << i;
      str << ")*(1-x)^(" << (n-i-1);
      str << ")*";
      str << v[i] << "+";
   }
   str << "0";  
-  std::cout << str.str() << std::endl;
   return *(new EvalAux(str.str()));
 }
 

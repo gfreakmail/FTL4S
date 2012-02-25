@@ -6,7 +6,9 @@ namespace FTL4S{
   {
     
     FTL4S_BASETYPE ret=1; 
-     
+    if (n == 0.0)
+       return 1;
+      
     if ( n < 0 )
        throw "Negative factorial?";
     
