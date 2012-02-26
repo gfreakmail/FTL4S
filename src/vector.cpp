@@ -1,10 +1,26 @@
 #include<FTL4S.h>
+#include<stdarg.h>
 
 namespace FTL4S{
   
   void Vector::Add(FTL4S_BASETYPE e){
        push_back(e);       
-  } 
+  
+  }
+ 
+  void Vector::Add(int n ,...){
+
+      if (n < 1)
+          throw "Add nothing?";
+      FTL4S_BASETYPE val;
+      va_list vl;
+      va_start(vl,n);
+      while(n--){
+        val=va_arg(vl,FTL4S_BASETYPE); 
+        push_back(val);
+      }
+      va_end(vl);
+  }
  
   Vector Vector::operator+(Vector &v){
        Vector ret;
@@ -116,6 +132,7 @@ namespace FTL4S{
        return *this;
        
   }
+  
 
 
 }

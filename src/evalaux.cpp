@@ -38,6 +38,10 @@ double EvalAux::Evalx(double v){
 
 }
 
+EvalAux::~EvalAux(){
+  evaluator_destroy(pEvaluator);
+}
+
 void EvalAux::Call(void (func)(double v), double st, double intv, double end){
    
   for( ; st < (end+intv) ; st += intv )

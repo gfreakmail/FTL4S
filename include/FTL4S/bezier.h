@@ -12,7 +12,7 @@ namespace FTL4S {
       EvalAux _Bezier(Vector &) const;    
       void EvalFunc( FTL4S_BASETYPE , void(*)(FTL4S_BASETYPE,FTL4S_BASETYPE));
       void EvalFunc( FTL4S_BASETYPE , void(*)(FTL4S_BASETYPE,FTL4S_BASETYPE,FTL4S_BASETYPE));
-
+      ~Bezier();
      private:
        EvalAux *Fx,*Fy,*Fz;
           

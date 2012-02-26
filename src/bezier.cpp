@@ -27,9 +27,18 @@ EvalAux Bezier::_Bezier(Vector& v) const{
      str << ")*";
      str << v[i] << "+";
   }
-  str << "0";  
-  return *(new EvalAux(str.str()));
+  str << "0"; 
+  EvalAux ret(str.str()); 
+  return ret;
+  //return *(new EvalAux(str.str()));
 }
+
+Bezier::~Bezier(){
+   destroy(Fx);
+   destroy(Fy);
+   destroy(Fz); 
+}
+
 
 void  Bezier::EvalFunc( FTL4S_BASETYPE st, void (*func)(FTL4S_BASETYPE,FTL4S_BASETYPE)){
   

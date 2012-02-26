@@ -20,7 +20,7 @@ namespace FTL4S{
       EvalAux(char *);
       EvalAux(string);
       EvalAux(const char*);
-      
+      ~EvalAux(); 
     private:
       void GetVars(void);
       void *pEvaluator;     
