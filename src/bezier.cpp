@@ -63,8 +63,6 @@ void  Bezier::EvalFunc( FTL4S_BASETYPE st, void (*func)(FTL4S_BASETYPE,FTL4S_BAS
 }
 
 
-
-
 }//namespace end
 
 

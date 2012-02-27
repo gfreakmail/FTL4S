@@ -12,6 +12,7 @@ namespace FTL4S{
 
       if (n < 1)
           throw "Add nothing?";
+
       FTL4S_BASETYPE val;
       va_list vl;
       va_start(vl,n);
